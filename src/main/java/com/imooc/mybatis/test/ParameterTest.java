@@ -34,7 +34,7 @@ public class ParameterTest {
 
         PersonMapper mapper = sqlSession.getMapper(PersonMapper.class);
 
-        mapper.deletePerson(5);
+        mapper.deletePerson(4);
 
         sqlSession.commit();
     }

@@ -12,6 +12,6 @@
     </resultMap>
 
     <delete id="deletePerson" parameterType="int">
-        DELETE FROM person WHERE id = #{id}
+        DELETE FROM person WHERE id = #{parameter}
     </delete>
 </mapper>
