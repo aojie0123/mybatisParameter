@@ -1,5 +1,6 @@
 package com.imooc.mybatis.test;
 
+import com.imooc.mybatis.bean.Person;
 import com.imooc.mybatis.dao.PersonMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -9,6 +10,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ParameterTest {
 
@@ -37,6 +40,17 @@ public class ParameterTest {
         mapper.deletePerson(4);
 
         sqlSession.commit();
+    }
+
+    @Test
+    public void getPersonByNameAndGender() {
+        SqlSession sqlSession = getSqlSessionFactory().openSession();
+
+        PersonMapper mapper = sqlSession.getMapper(PersonMapper.class);
+
+        Person person = mapper.getPersonByNameAndGender("wangwu", "f");
+
+        System.out.println(person);
     }
 
 }

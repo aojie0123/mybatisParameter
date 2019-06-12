@@ -10,6 +10,10 @@
         <result column="gender" property="gender" jdbcType="VARCHAR" />
         <result column="deptId" property="deptId" jdbcType="VARCHAR" />
     </resultMap>
+    
+    <select id="getPersonByNameAndGender" resultType="person">
+        SELECT * FROM person WHERE username = #{username} AND gender = #{gender}
+    </select>
 
     <delete id="deletePerson" parameterType="int">
         DELETE FROM person WHERE id = #{parameter}
