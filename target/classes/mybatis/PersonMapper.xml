@@ -11,7 +11,22 @@
         <result column="deptId" property="deptId" jdbcType="VARCHAR" />
     </resultMap>
 
+    <select id="getPersonByIds" resultType="person">
+        SELECT * FROM person WHERE id IN
+        <foreach collection="array" item="id" index="i" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="getPersonByCollection" resultType="person">
+        SELECT * FROM person WHERE id = #{array[0]}
+    </select>
+    
+    <select id="getPersonByNameAndGender" resultType="person">
+        SELECT * FROM person WHERE username = #{username} AND gender = #{gender}
+    </select>
+
     <delete id="deletePerson" parameterType="int">
-        DELETE FROM person WHERE id = #{id}
+        DELETE FROM person WHERE id = #{parameter}
     </delete>
 </mapper>
