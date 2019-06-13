@@ -25,4 +25,8 @@ public interface PersonMapper {
 
     public List<Person> getPersonByIds(int[] ids);
 
+    public int addPerson(@Param("persons") List<Person> persons);
+
+    public int addPersons(Person person);
+
 }

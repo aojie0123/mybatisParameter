@@ -10,6 +10,12 @@ public class Person {
     public Person() {
     }
 
+    public Person(String username, String email, String gender) {
+        this.username = username;
+        this.email = email;
+        this.gender = gender;
+    }
+
     public Person(Integer id, String username, String email, String gender, Dept dept) {
         this.id = id;
         this.username = username;

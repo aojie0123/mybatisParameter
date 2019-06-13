@@ -11,6 +11,17 @@
         <result column="deptId" property="deptId" jdbcType="VARCHAR" />
     </resultMap>
 
+    <insert id="addPersons" parameterType="person">
+        INSERT INTO person(username, email, gender) VALUES (#{username}, #{email}, #{gender})
+    </insert>
+
+<!--    <insert id="addPerson">-->
+<!--        INSERT INTO person (username, email, gender) VALUES-->
+<!--        <foreach collection="persons" item="person" separator=",">-->
+<!--            (#{person.username}, #{person.email}, #{person.gender})-->
+<!--        </foreach>-->
+<!--    </insert>-->
+
     <select id="getPersonByIds" resultType="person">
         SELECT * FROM person WHERE id IN
         <foreach collection="array" item="id" index="i" open="(" close=")" separator=",">
